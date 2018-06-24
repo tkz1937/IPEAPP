@@ -21,7 +21,7 @@
 			return False;
 		}
 		public function seConnecter($user){
-			$str = 'SELECT * FROM utilisateur WHERE login=:login and mot_de_passe=:mot_de_passe';
+			$str = 'SELECT * FROM utlisateur WHERE login=:login and mot_de_passe=:mot_de_passe';
 			$prepare = $this->db->prepare($str);
 			$prepare->execute(array('login'=>$user->getLogin(),
 								'mot_de_passe'=>$user->getMotDePasse()));

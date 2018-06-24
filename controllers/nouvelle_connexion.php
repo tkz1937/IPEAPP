@@ -1,14 +1,14 @@
 <?php
 	require_once('../models/structure/utilisateur.class.php');
-	require_once('../models/dao/connexiondb.class.php');
-	require_once('../models/dao/utlisateur.dao.php');
-	require_once('../models/structure/nouvelle_connexion.php');
+	require_once('../models/structure/connexiondb.class.php');
+	require_once('../models/dao/utilisateur.dao.php');
+	
 
-	if(isset($_POST['login'], $_POST['pwd'])) {
+	if(isset($_POST['login'],$_POST['email'] ,$_POST['pwd'])) {
 		$login = $_POST['login'];
 		$pwd = $_POST['pwd'];
 
-		$utilisat = new Nouvelle_connexion(0, $login, $pwd);
+		$utilisat = new Utilisateur(0,$login,null,$pwd,null,null,null);
 		$utilisateur = new UtilisateurDAO();
 
 		$res = $utilisateur->seConnecter($utilisat);
@@ -19,9 +19,9 @@
 			session_start();
 			$_SESSION['login'] = $login;
 
-			header('Location: ../views/profil.php?login='.$_SESSION['login'] .'');
+			header('Location: ../views/inscrire_nouveau_eleve.html?login='.$_SESSION['login'] .'');
 		} else {
-			header('Location: ../views/index.php?error=3');
+			header('Location: ../views/index.html?error=3');
 		}
 
 	} else {
