@@ -49,25 +49,25 @@
               </div>
               <!--Body-->
 
-              <form class="formulaire" action="" method="post">
+              <form class="formulaire" action="../controllers/add_classe.php" method="post">
                   <div class="md-form">
                     <i class="fa fa-user prefix white-text active"></i>
-                    <input type="text" id="intitule" class="white-text form-control">
+                    <input type="text" id="intitule" name="intitule" class="white-text form-control">
                     <label for="intitule" >Intitulé</label>
                   </div>
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
-                    <input type="text" id="niveau" class="white-text form-control">
+                    <input type="text" id="niveau" name="niveau" class="white-text form-control">
                     <label for="niveau" >Niveau</label>
                   </div>
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
-                    <input type="text" id="nbre_eleve" class="white-text form-control">
+                    <input type="number" min="0" id="nbre_eleve" name="nbre_eleve" class="white-text form-control">
                     <label for="nbre_eleve">Nombre d'élève</label>
                   </div>
                   <div class="md-form">
                     <i class="fa fa-envelope prefix white-text active"></i>
-                    <input type="text" id="nbre_place" class="white-text form-control">
+                    <input type="number" min="0" id="nbre_place" name="nbre_place" class="white-text form-control">
                     <label for="nbre_place" >Nombre de place</label>
                   </div>
 

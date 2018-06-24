@@ -8,9 +8,9 @@
 			$this->db = ConnexionDB::getConnexion();
 		}
 		public function ajouterClasse($classe){
-			$query = "INSERT INTO classe VALUES(null,:intitule,:niveau,:nb_place,0)";
+			$query = "INSERT INTO classe VALUES(null,:nom_classe,:niveau,:nb_place,0)";
 			$prepare = $this->db->prepare($query);
-			$rep = $prepare->execute(array('intitule'=>$classe->getIntitule(),
+			$rep = $prepare->execute(array('nom_classe'=>$classe->getIntitule(),
 									'niveau'=>$classe->getNiveau(),
 									'nb_place'=>$classe->getNbPLace()));
 			if ($rep)
