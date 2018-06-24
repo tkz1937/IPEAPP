@@ -1,0 +1,34 @@
+<?php 
+	
+	class UtilisateurDAO
+	{
+		private $db;
+		public function __construct()
+		{
+			$this->db = ConnexionDB::getConnexion();
+		}
+		public function ajouterUser($user){
+			$str = 'INSERT INTO utlisateur VALUES(null,:login,:nom_complet,:mot_de_passe,:tel,:email,:niveauAcces)';
+			$prepare = $this->db->prepare($str);
+			$prepare->execute(array('login'=>$user->getLogin(),
+									'nom_complet'=>$user->getNomComplet(),
+									'mot_de_passe'=>$user->getMotDePasse(),
+									'tel'=>$user->getTel(),
+									'email'=>$user->getEmail(),
+									'niveauAcces'=>$user->getNiveauAcces()));
+			if($prepare)
+				return True;
+			return False;
+		}
+		public function seConnecter($user){
+			$str = 'SELECT * FROM utilisateur WHERE login=:login and mot_de_passe=:mot_de_passe';
+			$prepare = $this->db->prepare($str);
+			$prepare->execute(array('login'=>$user->getLogin(),
+								'mot_de_passe'=>$user->getMotDePasse()));
+			$result =$prepare->fetch();
+			if($result)
+				return True;
+			return False;
+		}
+	}
+?>
