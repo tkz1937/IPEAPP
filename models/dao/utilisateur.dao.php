@@ -16,7 +16,8 @@
 									'tel'=>$user->getTel(),
 									'email'=>$user->getEmail(),
 									'niveauAcces'=>$user->getNiveauAcces()));
-			if($prepare)
+			
+			if(!($prepare==null))
 				return True;
 			return False;
 		}
@@ -29,6 +30,17 @@
 			if($result)
 				return True;
 			return False;
+		}
+
+		public function getUtilisateurById($login){
+			$str = 'SELECT id FROM utlisateur WHERE login=:login';
+			$prepare = $this->db->prepare($str);
+			$prepare->execute(array('login'=>$login));
+
+			$result =$prepare->fetch()['id'];
+
+			return $result;
+
 		}
 	}
 ?>

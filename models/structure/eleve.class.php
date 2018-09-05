@@ -76,6 +76,9 @@
 		public function getPiece_Jointe(){
 			return $this->pieceJointe;
 		}
+		public function setPiece_Jointe($piece){
+			 $this->pieceJointe=$piece;
+		}
 
 		public function getClasse(){
 			return $this->classe;

@@ -19,10 +19,19 @@
 		}
 
 		public function getIdByClasse($classe){
-			$query = "SELECT count(*) as id_min from classe where nom_classe =$classe";
-			$reponse = $this->db->query($query);
-			$id_max =$reponse->fetch()['id_min']+1;
-			return $id_max;
+			$query = "SELECT id from classe where nom_classe = :idclasse";
+			$prepare = $this->db->prepare($query);
+			$prepare->execute(array(
+					'idclasse'=>$classe
+			));
+			$id =$prepare->fetch();
+			return $id['id'];
+		}
+
+		public function getAllClasses()
+		{
+			$requete = 'SELECT id,  nom_classe  FROM classe';
+			return $this->db ->query($requete);
 		}
 	}
 

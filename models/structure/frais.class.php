@@ -3,14 +3,14 @@
 	class Frais
 	{
 		private $id;
-		private $id_inscription;
+		private $id_classe;
 		private $montant;
 		private $motif;
 		private $id_categorie;
-		public function __construct($id,$id_inscription,$id_categorie,$montant,$motif)
+		public function __construct($id,$id_classe,$montant,$motif,$id_categorie)
 		{
 			$this->id = $id;
-			$this->id_inscription = $id_inscription;
+			$this->id_classe = $id_classe;
 			$this->id_categorie = $id_categorie;
 			$this->montant = $montant;
 			$this->motif = $motif;
@@ -18,8 +18,8 @@
 		public function getId(){
 			return $this->id;
 		}
-		public function getIdInscription(){
-			return $this->id_inscription;
+		public function getIdClass(){
+			return $this->id_classe;
 		}
 		public function getIdCategorie(){
 			return $this->id_categorie;

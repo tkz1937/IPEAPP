@@ -6,11 +6,10 @@
 		private $description;
 		private $montant;
 		private $intitule;
-		public function __construct($id,$description,$montant,$intitule)
+		public function __construct($id,$description,$intitule)
 		{
 			$this->id = $id;
 			$this->description = $description;
-			$this->montant = $montant;
 			$this->intitule = $intitule;	
 		}
 		public function getId(){
@@ -18,9 +17,6 @@
 		}
 		public function getDescription(){
 			return $this->description;
-		}
-		public function getMontant(){
-			return $this->montant;
 		}
 		public function getIntitule(){
 			return $this->intitule;
