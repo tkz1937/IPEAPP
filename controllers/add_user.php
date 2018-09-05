@@ -12,18 +12,14 @@
         $niveau = $_POST['niveau'];
         $telephone = $_POST['telephone'];
         $login = $_POST['login'];
-
+        
+        $resultat = 0;
         if($pwd == $pwdconfig){
             $utilisateur = new Utilisateur(0,$login,$nom,$pwd,$telephone,$email,$niveau);
             $utilisateurDao = new UtilisateurDAO();
             $resultat = $utilisateurDao->ajouterUser($utilisateur);
-
-            if($resultat){
-                header('Location : ../views/index.html');
-            }
-            header('Location : ../views/enregistrer.html');
         }
+        if($resultat)
+             header('Location:../views/home.php?');
     }
-
-
 ?>
